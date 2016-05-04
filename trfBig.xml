@@ -1,0 +1,25 @@
+<tool id="trfBig" name="TrfBig" version="0.1.0">
+    <description>trfBig - Mask tandem repeats on a big sequence file</description>
+    <requirements>
+        <requirement type="package" version="4.07b">trf</requirement>
+        <requirement type="package" version="324">ucsc-trfbig</requirement>
+    </requirements>
+    <stdio>
+        <exit_code range="1:" />
+    </stdio>
+    <command>
+        trfBig -bedAt=$output $input /dev/null
+    </command>
+    <inputs>
+        <param format="fasta" name="input" type="data" />
+    </inputs>
+    <outputs>
+        <data format="bed" name="output" />
+    </outputs>
+    <help>
+        This will repeatedly run trf to mask tandem repeats in infile
+        and put masked results in outFile.  inFile and outFile can be .fa
+        or .nib format. Outfile can be .bed as well. Sequence output is hard
+        masked, lowercase.
+    </help>
+</tool>
