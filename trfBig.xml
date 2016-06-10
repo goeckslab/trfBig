@@ -2,7 +2,8 @@
     <description>trfBig - Mask tandem repeats on a big sequence file</description>
     <requirements>
         <requirement type="package" version="4.07b">trf</requirement>
-        <requirement type="package" version="324">ucsc-trfbig</requirement>
+        <!--<requirement type="package" version="324">ucsc-trfbig</requirement>-->
+        <requirement type="package" version="1.0">trfBig</requirement>
     </requirements>
     <stdio>
         <exit_code range="1:" />
