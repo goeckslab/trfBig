@@ -24,9 +24,17 @@
     <package name="trf" version="4.07b">
         <install version="1.0">
             <actions>
-                <action type="download_binary" target_directory="bin">
+                <action type="download_by_url" target_directory="bin">
                     <url_template os="darwin">https://tandem.bu.edu/trf/downloads/trf407b.macos64</url_template>
                     <url_template os="linux">https://tandem.bu.edu/trf/downloads/trf407b.linux64</url_template>
+                </action>
+                <action type="move_file" rename_to="trf">
+                    <source>$INSTALL_DIR/bin/trf407b.macos64</source>
+                    <destination>$INSTALL_DIR/bin</destination>
+                </action>
+                <action type="move_file" rename_to="trf">
+                    <source>$INSTALL_DIR/bin/trf407b.linux64</source>
+                    <destination>$INSTALL_DIR/bin</destination>
                 </action>
                 <action type="chmod">
                     <file mode="750">$INSTALL_DIR/bin/trf</file>
