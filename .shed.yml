@@ -1,0 +1,6 @@
+categories: [Sequence Analysis]
+description: Mask tandem repeats on a big sequence file
+homepage_url: http://hgdownload.soe.ucsc.edu/admin/exe/linux.x86_64/trfBig 
+name: trfbig
+owner: yating-l
+remote_repository_url: https://github.com/goeckslab/trfBig

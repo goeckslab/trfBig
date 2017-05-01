@@ -23,26 +23,38 @@
     <!-- https://tandem.bu.edu/trf/downloads/trf407b.linux64 -->
     <package name="trf" version="4.07b">
         <install version="1.0">
-            <actions>
-                <action type="download_by_url" target_directory="bin">
-                    <url_template os="darwin">https://tandem.bu.edu/trf/downloads/trf407b.macos64</url_template>
-                    <url_template os="linux">https://tandem.bu.edu/trf/downloads/trf407b.linux64</url_template>
-                </action>
-                <action type="move_file" rename_to="trf">
-                    <source>$INSTALL_DIR/bin/trf407b.macos64</source>
-                    <destination>$INSTALL_DIR/bin</destination>
-                </action>
-                <action type="move_file" rename_to="trf">
-                    <source>$INSTALL_DIR/bin/trf407b.linux64</source>
-                    <destination>$INSTALL_DIR/bin</destination>
-                </action>
-                <action type="chmod">
-                    <file mode="750">$INSTALL_DIR/bin/trf</file>
-                </action>
-                <action type="set_environment">
-                    <environment_variable name="PATH" action="prepend_to">$INSTALL_DIR/bin</environment_variable>
-                </action>
-            </actions>
+            <actions_group>
+                <actions architecture="x86_64" os="linux">
+                    <action type="download_by_url" target_directory="bin">
+                       https://tandem.bu.edu/trf/downloads/trf407b.linux64
+                    </action>
+                    <action type="move_file" rename_to="trf">
+                        <source>trf407b.linux64</source>
+                        <destination>$INSTALL_DIR/bin</destination>
+                    </action>
+                    <action type="chmod">
+                        <file mode="750">$INSTALL_DIR/bin/trf</file>
+                    </action>
+                    <action type="set_environment">
+                        <environment_variable name="PATH" action="prepend_to">$INSTALL_DIR/bin</environment_variable>
+                    </action>
+                </actions>
+                <actions architecture="x86_64" os="darwin">
+                    <action type="download_by_url" target_directory="bin">
+                        https://tandem.bu.edu/trf/downloads/trf407b.macos64
+                    </action>
+                    <action type="move_file" rename_to="trf" os="darwin">
+                        <source>trf407b.macos64</source>
+                        <destination>$INSTALL_DIR/bin</destination>
+                    </action>
+                    <action type="chmod">
+                        <file mode="750">$INSTALL_DIR/bin/trf</file>
+                    </action>
+                    <action type="set_environment">
+                        <environment_variable name="PATH" action="prepend_to">$INSTALL_DIR/bin</environment_variable>
+                    </action>
+                </actions>
+            </actions_group> 
         </install>
         <readme>The tools downloaded by this dependency definition are free for academic use.</readme>
     </package>
